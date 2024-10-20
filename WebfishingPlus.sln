@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebfishingPlus", "WebfishingPlus\WebfishingPlus.csproj", "{BCFC7FCC-F6D5-4E88-8417-66B417C4DD1B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCFC7FCC-F6D5-4E88-8417-66B417C4DD1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCFC7FCC-F6D5-4E88-8417-66B417C4DD1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCFC7FCC-F6D5-4E88-8417-66B417C4DD1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCFC7FCC-F6D5-4E88-8417-66B417C4DD1B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
