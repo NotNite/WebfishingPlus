@@ -1,4 +1,5 @@
 {
   "Id": "WebfishingPlus",
-  "AssemblyPath": "WebfishingPlus.dll"
+  "AssemblyPath": "WebfishingPlus.dll",
+  "PackPath": "WebfishingPlus.pck"
 }
