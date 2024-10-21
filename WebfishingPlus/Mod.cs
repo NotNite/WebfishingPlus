@@ -27,6 +27,10 @@ public class Mod : IMod {
         if (Config.SortInventory) {
             modInterface.RegisterScriptMod(new InventorySorter());
         }
+
+        if (Config.NetcodeImprover) {
+            modInterface.RegisterScriptMod(new NetcodeImprover());
+        }
     }
 
     public void Dispose() { }
