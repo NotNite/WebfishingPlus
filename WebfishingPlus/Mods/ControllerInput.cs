@@ -19,8 +19,6 @@ public class ControllerInput {
         DPadRight = 15
     }
 
-    private const string CreateControllerAction = "create_controller_action";
-
     // Custom
     private const string LookLeft = "joy_look_left";
     private const string LookRight = "joy_look_right";
@@ -696,13 +694,6 @@ public class ControllerInput {
         }
     }
 
-    private static IEnumerable<Token> BuiltInPrintShort(string txt) {
-        yield return new Token(TokenType.BuiltInFunc, (uint?) BuiltinFunction.TextPrint);
-        yield return new Token(TokenType.ParenthesisOpen);
-        yield return new ConstantToken(new StringVariant(txt));
-        yield return new Token(TokenType.ParenthesisClose);
-    }
-
     private static IEnumerable<Token> Register(string map, int code, int axisValue = 0) {
         // if $"/root/WebfishingPlus": $"/root/WebfishingPlus".create_controller_action(map, code, axisValue)
         yield return new Token(TokenType.CfIf);
@@ -712,7 +703,7 @@ public class ControllerInput {
         yield return new Token(TokenType.Dollar);
         yield return new ConstantToken(new StringVariant("/root/WebfishingPlus"));
         yield return new Token(TokenType.Period);
-        yield return new IdentifierToken(CreateControllerAction);
+        yield return new IdentifierToken("create_controller_action");
         yield return new Token(TokenType.ParenthesisOpen);
         yield return new ConstantToken(new StringVariant(map));
         yield return new Token(TokenType.Comma);
@@ -725,7 +716,9 @@ public class ControllerInput {
         yield return new Token(TokenType.Newline, 1);
     }
 
-    private static double CalcVibration(double toCalc) => toCalc * Mod.Config.ControllerVibrationStrength;
+    private static double CalcVibration(double toCalc) {
+        return Math.Clamp(toCalc * Mod.Config.ControllerVibrationStrength, 0.0, 1.0);
+    }
 
     private static IEnumerable<Token> VibrateController(double weak, double strong, double duration) {
         // Input.start_joy_vibration(-1, weak, strong, duration)

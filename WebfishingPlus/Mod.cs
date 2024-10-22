@@ -5,6 +5,9 @@ using WebfishingPlus.Mods;
 namespace WebfishingPlus;
 
 public class Mod : IMod {
+    private static readonly Version VersionObject = Assembly.GetExecutingAssembly().GetName().Version!;
+    private static readonly string Version = $"v{VersionObject.Major}.{VersionObject.Minor}.{VersionObject.Build}";
+
     public static Config Config = null!;
 
     public Mod(IModInterface modInterface) {
@@ -16,21 +19,11 @@ public class Mod : IMod {
             modInterface.RegisterScriptMod(new ControllerInput.InputRemapButtonModifier());
         }
 
-        if (Config.MenuTweaks) {
-            modInterface.RegisterScriptMod(new MenuTweaks.MainMenuModifier());
-        }
-
-        if (Config.FixHotbar) {
-            modInterface.RegisterScriptMod(new FixHotbar());
-        }
-
-        if (Config.SortInventory) {
-            modInterface.RegisterScriptMod(new InventorySorter());
-        }
-
-        if (Config.NetcodeImprover) {
-            modInterface.RegisterScriptMod(new NetcodeImprover());
-        }
+        if (Config.MenuTweaks) modInterface.RegisterScriptMod(new MenuTweaks());
+        if (Config.FixHotbar) modInterface.RegisterScriptMod(new FixHotbar());
+        if (Config.SortInventory) modInterface.RegisterScriptMod(new InventorySorter());
+        if (Config.MeteorNotice) modInterface.RegisterScriptMod(new MeteorNotice());
+        if (Config.NetcodeImprover) modInterface.RegisterScriptMod(new NetcodeImprover());
     }
 
     public void Dispose() { }
