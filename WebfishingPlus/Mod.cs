@@ -22,7 +22,6 @@ public class Mod : IMod {
         if (Config.MenuTweaks) modInterface.RegisterScriptMod(new MenuTweaks());
         if (Config.FixHotbar) modInterface.RegisterScriptMod(new FixHotbar());
         if (Config.SortInventory) modInterface.RegisterScriptMod(new InventorySorter());
-        if (Config.MeteorNotice) modInterface.RegisterScriptMod(new MeteorNotice());
         if (Config.NetcodeImprover) modInterface.RegisterScriptMod(new NetcodeImprover());
     }
 

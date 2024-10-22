@@ -14,5 +14,4 @@ public class Config {
     [JsonInclude] public bool SortInventory;
     [JsonInclude] public bool FixHotbar = true;
     [JsonInclude] public bool NetcodeImprover;
-    [JsonInclude] public bool MeteorNotice;
 }
