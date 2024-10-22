@@ -8,7 +8,6 @@ WebfishingPlus adds some quality of life features into [WEBFISHING](https://stor
 - Automatic inventory sorting
 - Refilling hotbar slot with same type of item on use
 - Enabling lobby menu buttons while the server list is refreshing
-- Displaying a notice when a meteor falls
 
 Every feature is toggleable or customizable in the mod's config file (some features are disabled by default)!
 
