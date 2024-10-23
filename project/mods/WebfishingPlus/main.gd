@@ -92,7 +92,7 @@ func process_netcode(packet) -> bool:
 		actor_usage_timer[actor_id] = OS.get_ticks_msec()
 		packet_cache[packet_type][actor_id] = normalized_packet.data
 
-	print("WebfishingPlus: process_netcode() packet: ", packet)
+	#print("WebfishingPlus: process_netcode() packet: ", packet)
 	return false
 
 func _ready() -> void:
