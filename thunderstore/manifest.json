@@ -1,7 +1,7 @@
 {
   "name": "WebfishingPlus",
-  "version_number": "1.2.0",
+  "version_number": "1.2.1",
   "website_url": "https://github.com/NotNite/WebfishingPlus",
   "description": "Quality of life features for WEBFISHING",
-  "dependencies": []
+  "dependencies": ["NotNet-GDWeave-2.0.12"]
 }

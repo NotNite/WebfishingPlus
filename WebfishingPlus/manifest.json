@@ -1,5 +1,12 @@
 {
   "Id": "WebfishingPlus",
   "AssemblyPath": "WebfishingPlus.dll",
-  "PackPath": "WebfishingPlus.pck"
+  "PackPath": "WebfishingPlus.pck",
+  "Metadata": {
+    "Name": "WebfishingPlus",
+    "Author": "NotNite, funcjay",
+    "Version": "1.2.1",
+    "Description": "Quality of life features for WEBFISHING",
+    "Homepage": "https://github.com/NotNite/WebfishingPlus"
+  }
 }
