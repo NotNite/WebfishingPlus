@@ -14,7 +14,7 @@ Every feature is toggleable or customizable in the mod's config file (some featu
 
 ## Installation
 
-Install [GDWeave](https://github.com/NotNite/GDWeave), then download and install [the latest release](https://github.com/NotNite/WebfishingPlus/releases).
+Install [GDWeave](https://github.com/NotNite/GDWeave), then download and install [the latest GitHub release](https://github.com/NotNite/WebfishingPlus/releases) or from the Thunderstore page.
 
 ## Controller binds
 
