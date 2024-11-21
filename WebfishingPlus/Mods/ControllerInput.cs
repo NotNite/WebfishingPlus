@@ -1,4 +1,4 @@
-﻿using GDWeave.Godot;
+using GDWeave.Godot;
 using GDWeave.Godot.Variants;
 using GDWeave.Modding;
 
@@ -79,6 +79,20 @@ public class ControllerInput {
                 t => t.Type is TokenType.Newline && t.AssociatedData is 1,
                 waitForReady: true
             );
+            var rodCatchWaiter = new MultiTokenWaiter([
+                t => t.Type is TokenType.CfIf,
+                t => t is IdentifierToken {Name: "OptionsMenu"},
+                t => t.Type is TokenType.Period,
+                t => t is IdentifierToken {Name: "catch_bell"},
+                t => t.Type is TokenType.Colon,
+                t => t is IdentifierToken {Name: "GlobalAudio"},
+                t => t.Type is TokenType.Period,
+                t => t is IdentifierToken {Name: "_play_sound"},
+                t => t.Type is TokenType.ParenthesisOpen,
+                t => t is ConstantToken {Value: StringVariant {Value: "shop_enter"}},
+                t => t.Type is TokenType.ParenthesisClose,
+                t => t.Type is TokenType.Newline
+            ]);
             var rodCastDistWaiter = new MultiTokenWaiter([
                 t => t is IdentifierToken {Name: "rod_cast_dist"},
                 t => t.Type is TokenType.OpAssignSub,
@@ -116,6 +130,12 @@ public class ControllerInput {
                     yield return token;
                     if (Mod.Config.ControllerVibration && Mod.Config.ControllerVibrationLand)
                         foreach (var t in this.PatchLandVibration()) yield return t;
+                } else if(rodCatchWaiter.Check(token)) {
+                    yield return token;
+                    if (Mod.Config.ControllerVibration && Mod.Config.ControllerVibrationCatch) {
+                        foreach (var t in VibrateController(0.2, 0.5, 0.5)) yield return t;
+                        yield return new Token(TokenType.Newline, token.AssociatedData);
+                    }
                 } else if (rodCastDistWaiter.Check(token)) {
                     yield return token;
                     foreach (var t in this.PatchSprintReel()) yield return t;
